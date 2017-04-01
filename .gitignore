@@ -92,3 +92,5 @@ Session.vim
 rt_sandbox/
 prefix/
 
+test/hash/sha256_test
+
