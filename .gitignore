@@ -94,4 +94,4 @@ prefix/
 .env.sh
 
 test/hash/sha256_test
-
+test/hash/sha224_test

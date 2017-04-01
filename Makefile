@@ -20,9 +20,12 @@ all: test
 test/hash/sha256_test: test/hash/sha256_test.cc src/hash/sha256.c
 	$(CXX) $(TESTCXXFLAGS) -DDISABLE_SHA224=1 -o $@ $< $(TESTLDFLAGS) $(TESTLIBS)
 
+test/hash/sha224_test: test/hash/sha224_test.cc src/hash/sha256.c
+	$(CXX) $(TESTCXXFLAGS) -DDISABLE_SHA256=1 -o $@ $< $(TESTLDFLAGS) $(TESTLIBS)
 
-test: test/hash/sha256_test
+
+test: test/hash/sha256_test test/hash/sha224_test
 	$(foreach f, $^, ./$(f);)
 
 clean:
-	$(RM) test/hash/sha256_test
+	$(RM) test/hash/sha256_test test/hash/sha224_test
